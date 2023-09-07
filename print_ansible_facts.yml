@@ -1,0 +1,17 @@
+---
+- name: Print Ansible Facts
+  hosts: all
+  become: false
+  tasks:
+
+    - name: Setting facts so that they will be persisted in the fact cache
+      ansible.builtin.set_fact:
+        one_fact: something
+        cacheable: yes
+
+    - name: Gather facts
+      ansible.builtin.setup:
+
+    - name: Print facts
+      ansible.builtin.debug:
+        var: ansible_facts

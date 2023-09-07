@@ -1,0 +1,11 @@
+---
+- name: Set some facts
+  hosts: all
+  become: true
+
+  tasks:
+    - name: Setting facts so that they will be persisted in the fact cache
+      ansible.builtin.set_fact:
+        one_fact: something
+        cacheable: yes
+
