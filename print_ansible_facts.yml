@@ -2,6 +2,7 @@
 - name: Print Ansible Facts
   hosts: all
   become: false
+  gather_facts: true
   tasks:
 
     - name: Setting facts so that they will be persisted in the fact cache
@@ -15,3 +16,6 @@
     - name: Print facts
       ansible.builtin.debug:
         var: ansible_facts
+
+    - name: Gather facts with module
+      ansible.builtin.gather_facts:
